@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Avenue 5 Catastrophe Equation</title>
+<style>
+  :root { color-scheme: dark; font-family: ui-sans-serif, system-ui, sans-serif; }
+  body { margin: 0; background: #0b0d12; color: #eef2f7; }
+  main { max-width: 900px; margin: 0 auto; padding: 32px 20px 64px; }
+  h1 { font-size: clamp(2rem, 5vw, 4rem); margin-bottom: 8px; }
+  .lede { color: #bac3d1; max-width: 70ch; }
+  .equation { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; padding: 16px; background: #151923; border: 1px solid #2d3442; border-radius: 12px; overflow:auto; }
+  .grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:12px; margin-top:24px; }
+  label { display:flex; flex-direction:column; gap:6px; background:#121722; padding:12px; border-radius:10px; }
+  input { width:100%; box-sizing:border-box; }
+  button { margin-top:18px; padding:12px 18px; font-weight:700; border:0; border-radius:10px; cursor:pointer; }
+  .result { margin-top:20px; padding:18px; border-radius:12px; background:#151923; }
+  .small { color:#929dad; font-size:.92rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Avenue 5 Catastrophe Equation</h1>
+  <p class="lede">A zero-build browser simulator for the recursive screenwriting rule: technical failure becomes social amplification, then the attempted fix makes it worse.</p>
+  <div class="equation">D(t+1) = [D(t) + E(t)(1 - C(t))] × [1 + P(t) + V(t) + B(t)] + H(t)</div>
+
+  <div class="grid">
+    <label>Current disaster D<input id="D" type="number" step="0.1" value="2"></label>
+    <label>Engineering failure E<input id="E" type="number" step="0.1" value="3"></label>
+    <label>Competence C (0–1)<input id="C" type="number" min="0" max="1" step="0.05" value="0.4"></label>
+    <label>Panic P<input id="P" type="number" step="0.05" value="0.5"></label>
+    <label>Vanity V<input id="V" type="number" step="0.05" value="0.3"></label>
+    <label>Bureaucracy B<input id="B" type="number" step="0.05" value="0.2"></label>
+    <label>Human complication H<input id="H" type="number" step="0.1" value="1"></label>
+  </div>
+  <button id="go">Make it worse</button>
+  <div class="result" id="out">D(t+1) = 8.600</div>
+  <p class="small">Interpretive satire only. No spacecraft were harmed in this calculation.</p>
+</main>
+<script>
+const ids = ['D','E','C','P','V','B','H'];
+function calc(){
+  const x = Object.fromEntries(ids.map(id => [id, Number(document.getElementById(id).value)]));
+  const amp = 1 + x.P + x.V + x.B;
+  const next = (x.D + x.E * (1 - x.C)) * amp + x.H;
+  const delta = next - x.D;
+  document.getElementById('out').innerHTML =
+    `<strong>D(t+1) = ${next.toFixed(3)}</strong><br>` +
+    `ΔD = ${delta.toFixed(3)} — ${delta > 0 ? 'Avenue regime: remediation instability.' : 'Somebody competent got into the room.'}`;
+}
+document.getElementById('go').addEventListener('click', calc);
+calc();
+</script>
+</body>
+</html>

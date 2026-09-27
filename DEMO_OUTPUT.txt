@@ -1,0 +1,13 @@
+Avenue 5 catastrophe simulation
+--------------------------------
+D_0 = 2.000 | dignity = 0.7408
+D_1 = 8.600 | dignity = 0.2753
+D_2 = 20.740 | dignity = 0.0446
+D_3 = 36.565 | dignity = 0.0041
+
+One Terrible Decision -> Three New Problems
+generation 0: 1 problem(s)
+generation 1: 3 problem(s)
+generation 2: 9 problem(s)
+generation 3: 27 problem(s)
+generation 4: 81 problem(s)

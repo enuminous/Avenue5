@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+title: "Avenue 5 Catastrophe Equation"
+message: "If you use this interpretive model, cite this repository."
+type: software
+version: 1.0.0
+date-released: 2026-09-27
+authors:
+  - family-names: "Wright"
+    given-names: "Matthew Chenoweth"
+  - name: "OpenAI ChatGPT"
+abstract: "A satirical recursive model of engineering failure, social amplification, and comic near-tragedy inspired by Avenue 5."
+license: MIT
